@@ -1,0 +1,40 @@
+@import "utils/breakpoints";
+@import "utils/variables";
+
+@import "shared/mixins";
+
+@import "base/reset";
+@import "base/globals";
+
+// Page Transition
+.page-transition-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $black;
+	z-index: 9999;
+	pointer-events: none;
+	transform-origin: top;
+}
+
+// Homepage sticky hero effect
+.homepage {
+	position: relative;
+
+	.stacking-sections {
+		position: relative;
+		z-index: 10;
+		background-color: $white;
+
+		// Ensure sections stack properly on top of hero
+		& > * {
+			position: relative;
+			z-index: 10;
+		}
+	}
+}
+
+
+

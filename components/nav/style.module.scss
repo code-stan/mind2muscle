@@ -1,0 +1,23 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.nav {
+	max-width: 76.9rem;
+	padding: 4rem;
+	margin-inline: auto;
+
+	&__list {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		li {
+			line-height: 1;
+		}
+	}
+
+	img {
+		width: 7.2rem;
+		height: 7.2rem;
+	}
+}

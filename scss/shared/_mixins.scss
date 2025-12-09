@@ -1,0 +1,136 @@
+@use "../utils/breakpoints" as b;
+@use "../utils/variables" as v;
+
+@mixin media($range: min, $size) {
+	@if $range == min {
+		@media screen and (min-width: b.breakpoint($size)) {
+			@content;
+		}
+	}
+	@media screen and (max-width: b.breakpoint($size)) {
+		@content;
+	}
+}
+
+@mixin flex($align, $justify, $gap: 0rem, $fd: "row") {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+	gap: $gap;
+	flex-direction: $fd;
+}
+@mixin pg-white-space($spacer) {
+	#{$spacer}-inline: v.$inline-pg-space;
+
+	@include media(max, tablet) {
+		#{$spacer}-inline: v.$inline-pg-space-sm;
+	}
+}
+@mixin toggleableHover {
+	transition: 0.2s ease-in-out;
+
+	&:hover {
+		// opacity: 0.6;
+		color: $dark-wine;
+	}
+}
+
+@mixin buttonHover($background: #1a1b0f) {
+	& {
+		transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+	}
+
+	@media (hover: hover) {
+		&:hover:not(:disabled) {
+			background-color: $background;
+			transform: translateY(-0.4rem) !important;
+		}
+	}
+}
+//functions
+
+//shared placeholders
+%link-hover-state {
+	@media (hover: hover) {
+		a {
+			position: relative;
+		}
+		a::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			background: currentColor;
+			top: 90%;
+			left: 0;
+			pointer-events: none;
+			transform-origin: 100% 50%;
+			transform: scale3d(1, 1, 1);
+			transition: transform 0.3s;
+		}
+
+		a:hover::before {
+			transform-origin: 0% 50%;
+			transform: scale3d(0, 1, 1);
+		}
+	}
+}
+%text-layout {
+	font-weight: v.$fw-bold;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+%oval-heading {
+	font-size: v.$fs-14;
+	font-weight: v.$fw-medium;
+	text-transform: uppercase;
+	letter-spacing: 0.001em;
+	padding: 0.8rem 1.2rem;
+	border-radius: 2.4rem;
+	// border: 0.15rem solid v.$yellow;
+	// color: v.$yellow;
+	width: fit-content;
+	line-height: 0.8;
+
+	@include media(max, tablet) {
+		font-size: 1.2rem;
+	}
+}
+
+%rotate-anim {
+	animation: rotate 10s infinite linear forwards;
+
+	@keyframes rotate {
+		100% {
+			transform: rotateZ(1turn);
+		}
+	}
+}
+
+%h2 {
+	font-size: v.$fs-72;
+	font-weight: v.$fw-medium;
+	line-height: 1;
+	letter-spacing: -0.02em;
+
+	@include media(max, tablet) {
+		font-size: v.$fs-48;
+	}
+}
+
+%floating-anim {
+	animation: floating 15s infinite ease-in-out;
+
+	@keyframes floating {
+		0% {
+			transform: translate(-50%, -50%);
+		}
+		50% {
+			transform: translate(-50%, -60%);
+		}
+		100% {
+			transform: translate(-50%, -50%);
+		}
+	}
+}

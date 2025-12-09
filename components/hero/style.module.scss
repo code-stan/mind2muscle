@@ -1,0 +1,74 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.hero {
+	margin-top: 9.6rem;
+
+	&__content {
+		text-align: center;
+		margin-inline: auto;
+		max-width: 63.1rem;
+		h1 {
+			font-size: $fs-84;
+			line-height: 1;
+			text-transform: uppercase;
+		}
+		p {
+			margin-top: 1.6rem;
+			font-size: $fs-14;
+			line-height: 1.5;
+		}
+	}
+
+	&__button-container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		margin-top: 1.7rem;
+
+		a {
+			font-size: $fs-14;
+			line-height: 1.5;
+			padding: 0.8rem;
+			width: fit-content;
+		}
+
+		a:first-child {
+			background-color: $dark-wine;
+			color: $white;
+		}
+	}
+	&__quote-image {
+		margin-inline: 4rem;
+		margin-top: 7rem;
+		position: relative;
+	}
+	&__quote {
+		position: absolute;
+		top: 3.2rem;
+		left: 3.2rem;
+		max-width: 54.4rem;
+		background-color: $dark-wine;
+		color: $white;
+		padding: 2.4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+
+		.quote svg {
+			width: 1.635rem;
+			height: 1.415rem;
+		}
+		p {
+			font-size: $fs-14;
+			line-height: 1.5;
+		}
+	}
+	.author {
+		@include flex(center, start, 1.6rem);
+	}
+	&__image {
+		width: 100%;
+		height: auto;
+	}
+}

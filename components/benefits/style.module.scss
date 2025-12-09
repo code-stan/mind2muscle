@@ -1,0 +1,59 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.benefits {
+	margin-top: 12rem;
+
+	&__heading,
+	&__content {
+		margin-inline: 20.45rem;
+	}
+	&__heading {
+		max-width: 51.6rem;
+		margin-inline: auto;
+		text-align: center;
+
+		h2 {
+			font-size: $fs-66;
+		}
+		p {
+			margin-top: 1.6rem;
+			margin-inline: auto;
+			max-width: 49.7rem;
+		}
+	}
+	&__content {
+		margin-top: 5.3rem;
+		@include flex(center, space-between, 6.4rem);
+
+		.benefit {
+			max-width: 30.1rem;
+			text-align: center;
+
+			h3 {
+				font-size: $fs-32;
+			}
+
+			p {
+				margin-top: 1.6rem;
+			}
+		}
+	}
+	&__gallery {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 6rem;
+		margin-top: 5.6rem;
+		margin-right: 8.9rem;
+
+		img:first-child {
+			width: 71rem;
+			height: 68.6rem;
+		}
+		img:last-child {
+			width: 51.4rem;
+			height: 56.6rem;
+		}
+	}
+}

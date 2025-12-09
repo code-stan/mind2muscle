@@ -1,0 +1,65 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: $max-content-width; /* Using a variable from _variables.scss */
+  padding: 20px 0;
+
+  &__track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lighten($dark-wine, 60%); /* Example usage of a color variable */
+    border: 1px solid lighten($dark-wine, 40%);
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+
+    &--prev {
+      left: 10px;
+    }
+
+    &--next {
+      right: 10px;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    span {
+      width: 10px;
+      height: 10px;
+      background-color: lighten($dark-wine, 20%);
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+
+      &--active {
+        background-color: $dark-wine;
+      }
+    }
+  }
+}

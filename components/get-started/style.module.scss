@@ -1,0 +1,29 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.get-started {
+	padding: 7.2rem;
+	margin: 12rem 15.2rem 10.2rem;
+	background-color: $tomato-red;
+	color: $white;
+	@include flex(start, space-between, 12.5rem);
+
+	h2 {
+		max-width: 52.1rem;
+		font-size: $fs-72;
+	}
+	&__content {
+		max-width: 32.6rem;
+
+		p {
+			margin-bottom: 4.4rem;
+		}
+		a {
+			padding: 0.8rem;
+			font-size: $fs-14;
+			line-height: 1;
+			background-color: $white;
+			color: $charcoal-black;
+		}
+	}
+}

@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap");
+
+// COLOR PALETTE
+$black: #000000;
+$white: #ffffff;
+$dark-wine: #cc0008;
+$tomato-red: #ec1c24;
+$charcoal-black: #1e1e1e;
+
+$ff-schabo: "Schabo", sans-serif;
+$ff-stack-sans: "Stack Sans Text", sans-serif;
+
+@font-face {
+	font-family: "Schabo";
+	src: url("/fonts/SCHABO.woff2") format("woff2");
+	font-style: normal;
+	font-display: swap;
+}
+
+// FONT SIZES
+$fs-128: 12.8rem;
+$fs-120: 12rem;
+$fs-84: 8.4rem;
+$fs-80: 8rem;
+$fs-72: 7.2rem;
+$fs-66: 6.6rem;
+$fs-64: 6.4rem;
+$fs-56: 5.6rem;
+$fs-48: 4.8rem;
+$fs-40: 4rem;
+$fs-36: 3.6rem;
+$fs-32: 3.2rem;
+$fs-28: 2.8rem;
+$fs-24: 2.4rem;
+$fs-20: 2rem;
+$fs-18: 1.8rem;
+$fs-16: 1.6rem; //- Base
+$fs-15: 1.5rem;
+$fs-14: 1.4rem;
+$fs-12: 1.2rem;
+$fs-10: 1rem;
+$fs-8: 0.8rem;
+
+// FONT WEIGHTS
+$fw-extra-bold: 800;
+$fw-bold: 700;
+$fw-semi-bold: 600;
+$fw-medium: 500;
+$fw-regular: 400;
+$fw-light: 300;
+
+//Z-INDEX
+$z-loader: 10000;
+$z-top-layer: 9999;
+
+$inline-pg-space: 10.2rem;
+$inline-pg-space-sm: 2rem;
+$max-content-width: 1200px;

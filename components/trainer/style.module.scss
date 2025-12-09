@@ -1,0 +1,48 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.trainer {
+	margin-top: 12rem;
+	margin-inline: 19.5rem 8.8rem;
+	@include flex(start, center, 15.5rem);
+
+	&__content {
+		max-width: 40.4rem;
+
+		h2 {
+			font-size: $fs-72;
+			line-height: 1;
+			text-transform: uppercase;
+		}
+		p {
+			margin-top: 1.6rem;
+			font-size: $fs-14;
+			line-height: 1.5;
+		}
+	}
+	&__image-container {
+		position: relative;
+
+		img {
+			width: 59.8rem;
+			height: 72.5rem;
+		}
+		.link-container {
+			padding: 0.8rem;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+		}
+		a {
+			border: 0.2rem solid $white;
+			@include flex(center, space-between, 3rem);
+			font-family: $ff-schabo;
+			line-height: 1;
+			font-size: $fs-48;
+			color: $white;
+			padding: 2.1rem 1.6rem 1.2rem;
+			text-transform: uppercase;
+		}
+	}
+}
