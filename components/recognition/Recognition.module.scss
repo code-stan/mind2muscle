@@ -1,21 +1,39 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
 .recognition {
-  h2 {
-    // Add your styles here
-  }
+	margin-top: 8rem;
+	margin-inline: 15.5rem;
+	@include flex(start, space-between, 6rem);
+
+	h2 {
+		font-size: $fs-64;
+		max-width: 28rem;
+	}
 }
 
 .recognition__list {
-  // Add your list styles here
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3.7rem;
 }
 
 .recognition__list_item {
-  // Add your list item styles here
+	img {
+		width: 7.7rem;
+		height: 7.7rem;
+	}
 
-  h3 {
-    // Add your heading styles here
-  }
+	h3 {
+		font-size: $fs-64;
+		line-height: 1.2;
+		height: 7.7rem;
+	}
 
-  p {
-    // Add your paragraph styles here
-  }
+	p {
+		font-weight: $fw-bold;
+		font-size: $fs-20;
+		line-height: 1.5;
+		margin-top: 0.8rem;
+	}
 }

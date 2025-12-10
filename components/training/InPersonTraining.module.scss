@@ -1,0 +1,162 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.training {
+	background-color: #d9ff00;
+	color: $black;
+	padding: 8rem 10.2rem;
+	margin-top: 8rem;
+
+	&__container {
+		max-width: 140rem;
+		margin: 0 auto;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 6rem;
+		margin-bottom: 5rem;
+
+		h2 {
+			font-family: $ff-schabo;
+			font-size: $fs-80;
+			line-height: 0.9;
+			text-transform: uppercase;
+			max-width: 45rem;
+			font-weight: $fw-bold;
+		}
+
+		p {
+			max-width: 50rem;
+			font-size: $fs-20;
+			line-height: 1.5;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+	}
+
+	&__features {
+		h3 {
+			font-family: $ff-schabo;
+			font-size: $fs-36;
+			text-transform: uppercase;
+			margin-bottom: 2rem;
+			font-weight: $fw-bold;
+		}
+
+		ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 1.6rem;
+
+			li {
+				display: flex;
+				align-items: center;
+				gap: 1.2rem;
+				font-size: $fs-18;
+				position: relative;
+				padding-left: 3.6rem;
+
+				&::before {
+					content: "✓";
+					position: absolute;
+					left: 0;
+					font-size: $fs-24;
+					font-weight: $fw-bold;
+					color: $black;
+				}
+			}
+		}
+	}
+
+	&__ideal {
+		h4 {
+			font-size: $fs-20;
+			font-weight: $fw-bold;
+			margin-bottom: 1rem;
+		}
+
+		p {
+			font-size: $fs-18;
+			line-height: 1.6;
+			max-width: 90rem;
+		}
+	}
+
+	&__pricing {
+		margin-top: 2rem;
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			background-color: transparent;
+
+			thead {
+				tr {
+					border-bottom: 2px solid $black;
+
+					th {
+						text-align: left;
+						padding: 1.6rem 2rem;
+						font-size: $fs-20;
+						font-weight: $fw-bold;
+						text-transform: uppercase;
+					}
+				}
+			}
+
+			tbody {
+				tr {
+					border-bottom: 1px solid $black;
+
+					&:last-child {
+						border-bottom: 2px solid $black;
+					}
+
+					td {
+						padding: 2rem;
+						font-size: $fs-18;
+						font-weight: $fw-medium;
+					}
+				}
+			}
+		}
+	}
+
+	&__cta {
+		background-color: $charcoal-black;
+		color: $white;
+		padding: 2.4rem 4rem;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		font-family: $ff-schabo;
+		font-size: $fs-32;
+		text-transform: uppercase;
+		margin-top: 2rem;
+		transition: transform 0.3s ease, background-color 0.3s ease;
+		font-weight: $fw-bold;
+		position: relative;
+
+		&:hover {
+			transform: translateY(-4px);
+			background-color: lighten($charcoal-black, 10%);
+		}
+
+		&::after {
+			content: "↗";
+			font-size: $fs-40;
+			line-height: 1;
+		}
+	}
+}

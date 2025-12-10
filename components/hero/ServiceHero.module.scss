@@ -1,0 +1,18 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.hero {
+	max-width: 51.6rem;
+	margin-inline: auto;
+	text-align: center;
+	margin-top: 7.2rem;
+
+	h1 {
+		font-size: $fs-66;
+		line-height: 1;
+	}
+	p {
+		margin-top: 0.4rem;
+		margin-inline: 0.95rem;
+	}
+}
