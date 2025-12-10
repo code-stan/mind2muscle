@@ -80,17 +80,31 @@ const testimonials = [
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 3 >= testimonials.length ? 0 : prevIndex + 3
-    );
+    if (isAnimating) return;
+    setDirection('left');
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex + 3 >= testimonials.length ? 0 : prevIndex + 3
+      );
+      setIsAnimating(false);
+    }, 300);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex - 3 < 0 ? Math.max(0, testimonials.length - 3) : prevIndex - 3
-    );
+    if (isAnimating) return;
+    setDirection('right');
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex - 3 < 0 ? Math.max(0, testimonials.length - 3) : prevIndex - 3
+      );
+      setIsAnimating(false);
+    }, 300);
   };
 
   const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + 3);
@@ -124,7 +138,7 @@ const Slider = () => {
           </div>
         </div>
 
-        <div className={styles.testimonials__grid}>
+        <div className={`${styles.testimonials__grid} ${isAnimating ? styles[`testimonials__grid--slide-${direction}`] : ''}`}>
           {visibleTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
