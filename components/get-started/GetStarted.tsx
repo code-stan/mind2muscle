@@ -1,4 +1,4 @@
-import { contact, services } from "@/utils/routes";
+import { contact, service } from "@/utils/routes";
 import Link from "next/link";
 import React from "react";
 import styles from "./style.module.scss";
@@ -9,7 +9,7 @@ const GetStarted = () => {
 			<h2>Ready to Make the Connection?</h2>
 			<div className={styles["get-started__content"]}>
 				<p>Your transformation starts with a conversation. Let's discuss your goals, your experience, and how Mind2Muscle can help you achieve results that last.</p>
-				<Link href={services}>Get Started Today</Link>
+				<Link href={service}>Get Started Today</Link>
 			</div>
 		</section>
 	);

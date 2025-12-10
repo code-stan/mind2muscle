@@ -1,0 +1,34 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.approach {
+	@include flex(start, start, 7.8rem);
+	margin-top: 8rem;
+
+	&__image-container {
+	}
+	img {
+		width: 71rem;
+		height: 72.8rem;
+		object-fit: cover;
+	}
+	&__content {
+		flex: 1;
+		max-width: 49.4rem;
+		margin-top: 11.8rem;
+
+		h2 {
+			font-size: $fs-64;
+			line-height: 1.2;
+		}
+	}
+	&__list-item {
+		h3 {
+			font-size: $fs-20;
+			font-weight: $fw-bold;
+			font-family: $ff-stack-sans;
+			line-height: 1.5;
+			text-transform: unset;
+		}
+	}
+}

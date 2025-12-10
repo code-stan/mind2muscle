@@ -1,0 +1,72 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.hero {
+	@include flex(start, center, 12.3rem);
+	margin-top: 5.7rem;
+	padding-inline: 4rem;
+	padding-bottom: 7.7rem;
+	border-bottom: 0.1rem dashed #464646;
+
+	&__content {
+		max-width: 56.6rem;
+	}
+	&__content-top {
+		margin-top: 8.1rem;
+
+		h1 {
+			font-size: $fs-64;
+			line-height: 1;
+		}
+		p {
+			margin-top: 1.6rem;
+		}
+		a {
+			margin-top: 2.4rem;
+			padding: 0.8rem;
+			color: $white;
+			background-color: $dark-wine;
+			display: inline-block;
+		}
+	}
+
+	&__content-bottom {
+		margin-top: 8rem;
+
+		h3 {
+			font-family: $ff-stack-sans;
+			text-transform: unset;
+		}
+		.location {
+			h3 {
+				font-weight: $fw-bold;
+				font-size: $fs-16;
+			}
+			p {
+				margin-top: 0.8rem;
+			}
+		}
+		.socials {
+			margin-top: 2.4rem;
+			h3 {
+				font-size: $fs-14;
+			}
+
+			&__links {
+				margin-top: 0.8rem;
+				@include flex(center, start, 1.6rem);
+
+				@extend %link-hover-state;
+				a {
+					font-weight: $fw-bold;
+				}
+			}
+		}
+	}
+	&__image-container {
+		img {
+			width: 67rem;
+			height: 74.5rem;
+		}
+	}
+}

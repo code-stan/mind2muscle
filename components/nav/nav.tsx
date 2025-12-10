@@ -1,21 +1,23 @@
+import Link from "next/link";
 import styles from "./style.module.scss";
+import { about, contact, service } from "@/utils/routes";
 
 const Nav = () => {
 	return (
 		<nav className={styles.nav}>
 			<ul className={styles["nav__list"]}>
 				<li>
-					<a href="">Home</a>
+					<Link href="/">Home</Link>
 				</li>
 				<li>
-					<a href="">About Me</a>
+					<Link href={about}>About Me</Link>
 				</li>
 				<img src="/m2m-logo.svg" alt="Mind 2 Muscle Logo" width={72} height={72} />
 				<li>
-					<a href="">Services</a>
+					<Link href={service}>Services</Link>
 				</li>
 				<li>
-					<a href="">Contact</a>
+					<Link href={contact}>Contact</Link>
 				</li>
 			</ul>
 		</nav>
