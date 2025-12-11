@@ -11,7 +11,6 @@
 		h1 {
 			font-size: $fs-84;
 			line-height: 1;
-			text-transform: uppercase;
 		}
 		p {
 			margin-top: 1.6rem;
@@ -24,6 +23,7 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		gap: 0.8rem;
 		margin-top: 1.7rem;
 
 		a {
@@ -70,5 +70,34 @@
 	&__image {
 		width: 100%;
 		height: auto;
+	}
+
+	@include media(max, tablet) {
+		margin-top: 13.5rem;
+
+		h1 {
+			font-size: $fs-56;
+			margin-inline: 0;
+		}
+		&__content {
+			margin-inline: 1.6rem;
+		}
+		&__button-container {
+			margin-top: 2.4rem;
+		}
+		&__quote-image {
+			margin-inline: 0;
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		&__quote {
+			position: static;
+			margin: 2.4rem 1.6rem 0;
+		}
+		&__image {
+			aspect-ratio: 375/679;
+			object-fit: cover;
+			object-position: center;
+		}
 	}
 }

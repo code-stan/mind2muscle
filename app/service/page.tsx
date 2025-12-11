@@ -3,16 +3,18 @@ import InPersonTraining from "@/components/training/InPersonTraining";
 import MobileTraining from "@/components/training/MobileTraining";
 import GroupTraining from "@/components/training/GroupTraining";
 import OnlineTraining from "@/components/training/OnlineTraining";
-import React from "react";
+import styles from "./style.module.scss";
 
 const page = () => {
 	return (
-		<main className="service">
+		<main className={styles["service"]}>
 			<ServiceHero />
-			<InPersonTraining />
-			<MobileTraining />
-			<GroupTraining />
-			<OnlineTraining />
+			<div className={styles["service__training"]}>
+				<InPersonTraining />
+				<MobileTraining />
+				<GroupTraining />
+				<OnlineTraining />
+			</div>
 		</main>
 	);
 };

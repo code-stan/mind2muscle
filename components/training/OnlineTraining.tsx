@@ -12,6 +12,39 @@ const OnlineTraining = () => {
 		"Optional nutritional guidance and coaching",
 	];
 
+	const pricingFeatures = [
+		{
+			preMade: "Proven workout template adapted to your experience level",
+			tailored: "100% customized programming designed for YOUR goals",
+			coaching: "Everything in Tailored Program, PLUS:",
+		},
+		{
+			preMade: "Exercise video library",
+			tailored: "Personalized exercise selection based on available equipment",
+			coaching: "Weekly form check video reviews",
+		},
+		{
+			preMade: "Progress tracking",
+			tailored: "Detailed program explanations",
+			coaching: "Direct messaging coaching support",
+		},
+		{
+			preMade: "Monthly program updates",
+			tailored: "Bi-weekly program adjustments",
+			coaching: "Weekly check-ins and accountability",
+		},
+		{
+			preMade: "Email support",
+			tailored: "Priority email support",
+			coaching: "Nutritional guidance",
+		},
+		{
+			preMade: "",
+			tailored: "",
+			coaching: "Ongoing program optimization based on feedback",
+		},
+	];
+
 	return (
 		<section className={styles.training}>
 			<div className={styles.training__container}>
@@ -41,41 +74,24 @@ const OnlineTraining = () => {
 
 					<div className={styles.training__pricing}>
 						<h3>PRICING</h3>
-						<div className={styles.pricing__grid}>
-							<div className={styles.pricing__tier}>
-								<h4>Pre-Made Program - $75/month</h4>
-								<ul>
-									<li>Proven workout template adapted to your experience level</li>
-									<li>Exercise video library</li>
-									<li>Progress tracking</li>
-									<li>Monthly program updates</li>
-									<li>Email support</li>
-								</ul>
-							</div>
-
-							<div className={styles.pricing__tier}>
-								<h4>Tailored Program - $100/month</h4>
-								<ul>
-									<li>100% customized programming designed for YOUR goals</li>
-									<li>Personalized exercise selection based on available equipment</li>
-									<li>Detailed program explanations</li>
-									<li>Bi-weekly program adjustments</li>
-									<li>Priority email support</li>
-								</ul>
-							</div>
-
-							<div className={styles.pricing__tier}>
-								<h4>Tailored Programming + Coaching - $125/month</h4>
-								<ul>
-									<li>Everything in Tailored Program, PLUS:</li>
-									<li>Weekly form check video reviews</li>
-									<li>Direct messaging coaching support</li>
-									<li>Weekly check-ins and accountability</li>
-									<li>Nutritional guidance</li>
-									<li>Ongoing program optimization based on feedback</li>
-								</ul>
-							</div>
-						</div>
+						<table>
+							<thead>
+								<tr>
+									<th>Pre-Made Program - $75/month</th>
+									<th>Tailored Program - $100/month</th>
+									<th>Tailored Programming + Coaching - $125/month</th>
+								</tr>
+							</thead>
+							<tbody>
+								{pricingFeatures.map((row, index) => (
+									<tr key={index}>
+										<td>{row.preMade}</td>
+										<td>{row.tailored}</td>
+										<td>{row.coaching}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
 					</div>
 
 					<button className={styles.training__cta}>START ONLINE TRAINING</button>

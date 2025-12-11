@@ -1,0 +1,8 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.service__training {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+}

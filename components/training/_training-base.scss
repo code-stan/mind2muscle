@@ -1,0 +1,158 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+// Base styles for all training sections
+%training-base {
+	color: $black;
+	margin-inline: 15.5rem;
+	color: $charcoal-black;
+}
+
+%training-container {
+	padding: 7.2rem;
+	max-width: 113rem;
+	margin: 0 auto;
+}
+
+%training-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 6rem;
+
+	h2 {
+		font-size: $fs-72;
+		max-width: 52.1rem;
+	}
+
+	p {
+		max-width: 34.6rem;
+	}
+}
+
+%training-content {
+	margin-top: 1.6rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+%training-features {
+	h3 {
+		font-size: $fs-32;
+		margin-bottom: 2rem;
+	}
+
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+
+		li {
+			display: flex;
+			align-items: center;
+			gap: 1.6rem;
+			position: relative;
+			padding-left: 3.6rem;
+
+			&::before {
+				content: url("/check-icon.svg");
+				position: absolute;
+				left: 0;
+				font-size: $fs-24;
+				color: $black;
+			}
+		}
+	}
+}
+
+%training-ideal {
+	h4 {
+		font-family: $ff-stack-sans;
+		font-size: $fs-14;
+		line-height: 1.5;
+		text-transform: unset;
+	}
+
+	p {
+		max-width: 59.8rem;
+	}
+}
+
+%training-pricing {
+	margin-top: 1.6rem;
+
+	h3 + table {
+		margin-top: 1.6rem;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		background-color: transparent;
+		border: 0.1rem solid $charcoal-black;
+
+		thead {
+			tr {
+				th {
+					text-align: left;
+					padding: 0.55rem 1.6rem;
+					font-size: $fs-14;
+					border-right: 0.1rem solid $charcoal-black;
+					border-bottom: 0.1rem solid $charcoal-black;
+
+					&:last-child {
+						border-right: none;
+					}
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				td {
+					padding: 0.55rem 1.6rem;
+					font-size: $fs-14;
+					border-right: 0.1rem solid $charcoal-black;
+					border-bottom: 0.1rem solid $charcoal-black;
+
+					&:last-child {
+						border-right: none;
+					}
+				}
+
+				&:last-child {
+					td {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+%training-cta {
+	background-color: $charcoal-black;
+	color: $white;
+	padding: 2.1rem 1.6rem 1.2rem;
+	@include flex(center, space-between);
+	width: 100%;
+	font-family: $ff-schabo;
+	font-size: $fs-48;
+	line-height: 1;
+	text-transform: uppercase;
+	margin-top: 1.6rem;
+	transition: transform 0.3s ease, background-color 0.3s ease;
+	// position: relative;
+
+	&:hover {
+		transform: translateY(-4px);
+		background-color: lighten($charcoal-black, 10%);
+	}
+
+	&::after {
+		content: "↗";
+		font-size: $fs-40;
+		line-height: 1;
+	}
+}

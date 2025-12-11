@@ -24,7 +24,7 @@ export default function Home() {
 			<Hero />
 			<Trainer />
 			<Benefits />
-			<Slider /> {/* Render the Slider component */}
+			<Slider />
 		</main>
 	);
 }
