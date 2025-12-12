@@ -1,14 +1,21 @@
+"use client";
+
 import React from "react";
 import styles from "./ContactHero.module.scss";
+import { trackConsultationClick } from "@/utils/analytics";
 
 const ContactHero = () => {
+	const handleConsultationClick = () => {
+		trackConsultationClick("Contact Page");
+	};
+
 	return (
 		<section className={styles.hero}>
 			<div className={styles.hero__content}>
 				<div className={styles["hero__content-top"]}>
 					<h1>If you've read this far, you already know whether Mind2Muscle is right for you.</h1>
 					<p>Let's have a conversation about your goals, your challenges, and how we can work together to create your transformation.</p>
-					<a href="">Schedule Consultation</a>
+					<a href="" onClick={handleConsultationClick}>Schedule Consultation</a>
 				</div>
 				<div className={styles["hero__content-bottom"]}>
 					<div className={styles["location"]}>

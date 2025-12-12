@@ -1,7 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import styles from "./InPersonTraining.module.scss";
+import { trackPricingView, trackCTAClick } from "@/utils/analytics";
 
 const InPersonTraining = () => {
+	const pricingRef = useRef<HTMLDivElement>(null);
+	const hasTrackedRef = useRef(false);
+
 	const features = [
 		"Personalized workout programming updated regularly",
 		"Real-time form correction and technique coaching",
@@ -16,6 +22,34 @@ const InPersonTraining = () => {
 		{ sessions: "2x per week", price: "$25/session", monthly: "$200/month" },
 		{ sessions: "3x per week", price: "$20/session", monthly: "$240/month" },
 	];
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting && !hasTrackedRef.current) {
+						trackPricingView("In-Person Training");
+						hasTrackedRef.current = true;
+					}
+				});
+			},
+			{ threshold: 0.5 }
+		);
+
+		if (pricingRef.current) {
+			observer.observe(pricingRef.current);
+		}
+
+		return () => {
+			if (pricingRef.current) {
+				observer.unobserve(pricingRef.current);
+			}
+		};
+	}, []);
+
+	const handleCTAClick = () => {
+		trackCTAClick("START IN-PERSON TRAINING", "In-Person Training");
+	};
 
 	return (
 		<section className={styles.training}>
@@ -44,7 +78,7 @@ const InPersonTraining = () => {
 						</p>
 					</div>
 
-					<div className={styles.training__pricing}>
+					<div ref={pricingRef} className={styles.training__pricing}>
 						<table>
 							<thead>
 								<tr>
@@ -65,7 +99,9 @@ const InPersonTraining = () => {
 						</table>
 					</div>
 
-					<button className={styles.training__cta}>START IN-PERSON TRAINING</button>
+					<button className={styles.training__cta} onClick={handleCTAClick}>
+						START IN-PERSON TRAINING
+					</button>
 				</div>
 			</div>
 		</section>

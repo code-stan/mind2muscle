@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import styles from "./style.module.scss";
 import { contact, service } from "@/utils/routes";
+import { trackConsultationClick, trackCTAClick } from "@/utils/analytics";
 
 const quoteAuthor = "/quote-author.svg";
 const quote = (
@@ -11,14 +14,22 @@ const quote = (
 );
 
 const Hero = () => {
+	const handleConsultationClick = () => {
+		trackConsultationClick("Hero Section");
+	};
+
+	const handleViewProgramsClick = () => {
+		trackCTAClick("View Programs", "Hero");
+	};
+
 	return (
 		<section className={styles.hero}>
 			<div className={styles["hero__content"]}>
 				<h1>Where Your Mind Meets Your Muscle</h1>
 				<p>Transform your fitness journey with a personal trainer who doesn't just count reps, but teaches you the why behind every movement. Science-backed training. Real results. Your goals, our expertise.</p>
 				<div className={styles["hero__button-container"]}>
-					<Link href={contact}>Start Your Transformation</Link>
-					<Link href={service}>View Programs</Link>
+					<Link href={contact} onClick={handleConsultationClick}>Start Your Transformation</Link>
+					<Link href={service} onClick={handleViewProgramsClick}>View Programs</Link>
 				</div>
 			</div>
 			<div className={styles["hero__quote-image"]}>
@@ -26,11 +37,11 @@ const Hero = () => {
 					<div className={styles["quote"]}>{quote}</div>
 					<p>It’s been fun training with Kashami. I come from a background where I had no experience with exercise. Kashami gave me a realistic and doable plan and I loved having the chats with him while getting a good workout.  He pushed me to my limits and always got the best from me in every session.  I would definitely recommend Kashami as your personal trainer.</p>
 					<div className={styles["author"]}>
-						<img src={quoteAuthor} alt="" width={28} height={28} />
+						<img src={quoteAuthor} alt="Client testimonial avatar" width={28} height={28} />
 						<p>Cheryl,  68</p>
 					</div>
 				</div>
-				<img src="/hero.webp" className={styles["hero__image"]} width={1360} height={679} />
+				<img src="/hero.webp" alt="Personal trainer working with client in gym" className={styles["hero__image"]} width={1360} height={679} />
 			</div>
 		</section>
 	);

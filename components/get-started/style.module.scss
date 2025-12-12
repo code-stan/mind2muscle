@@ -21,7 +21,7 @@
 		a {
 			padding: 0.8rem;
 			font-size: $fs-14;
-			line-height: 1;
+			line-height: 1.5;
 			background-color: $white;
 			color: $charcoal-black;
 		}
@@ -38,6 +38,10 @@
 		}
 		p {
 			margin-bottom: 2.4rem;
+		}
+
+		a {
+			padding: 1.35rem 1.6rem;
 		}
 	}
 }
