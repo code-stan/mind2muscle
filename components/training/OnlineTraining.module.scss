@@ -1,5 +1,6 @@
 @use "training-base" as *;
 @use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
 
 .training {
 	@extend %training-base;
@@ -37,6 +38,42 @@
 		}
 		th {
 			font-weight: $fw-semi-bold;
+		}
+
+		&__table {
+			@include media(max, tablet) {
+				display: none;
+			}
+		}
+
+		&__mobile {
+			display: none;
+
+			@include media(max, tablet) {
+				display: flex;
+				flex-direction: column;
+				gap: 2.4rem;
+			}
+		}
+
+		&__card {
+			border: 0.1rem solid $charcoal-black;
+
+			&__title {
+				font-weight: $fw-bold;
+				padding: 1.6rem;
+				border-bottom: 0.1rem solid $charcoal-black;
+			}
+
+			&__feature {
+				line-height: 1.5;
+				padding: 1.6rem;
+				border-bottom: 0.1rem solid $charcoal-black;
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
 		}
 	}
 

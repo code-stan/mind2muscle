@@ -2,14 +2,7 @@ import React from "react";
 import styles from "./GroupTraining.module.scss";
 
 const GroupTraining = () => {
-	const features = [
-		"Small group sessions for personalized attention",
-		"Scalable programming that adapts to each person's fitness level",
-		"Supportive, motivating environment",
-		"Expert coaching for proper form and technique",
-		"Flexible scheduling for your group",
-		"More cost-effective than solo training",
-	];
+	const features = ["Small group sessions for personalized attention", "Scalable programming that adapts to each person's fitness level", "Supportive, motivating environment", "Expert coaching for proper form and technique", "Flexible scheduling for your group", "More cost-effective than solo training"];
 
 	const pricingData = [
 		{ group: "Couples (2 people)", price: "$20/person/session", monthly: "$160/month per person (2x/week)" },
@@ -22,9 +15,7 @@ const GroupTraining = () => {
 			<div className={styles.training__container}>
 				<div className={styles.training__header}>
 					<h2>GROUP TRAINING</h2>
-					<p>
-						Train alongside friends, family, or workout partners in small group settings. Get expert coaching and the accountability of training with others—all at a more affordable price point than individual sessions.
-					</p>
+					<p>Train alongside friends, family, or workout partners in small group settings. Get expert coaching and the accountability of training with others—all at a more affordable price point than individual sessions.</p>
 				</div>
 
 				<div className={styles.training__content}>
@@ -39,9 +30,7 @@ const GroupTraining = () => {
 
 					<div className={styles.training__ideal}>
 						<h4>Ideal For:</h4>
-						<p>
-							Friends who want to train together, couples looking for shared fitness goals, small groups seeking accountability and motivation, or anyone who thrives in a community environment while still wanting professional coaching.
-						</p>
+						<p>Friends who want to train together, couples looking for shared fitness goals, small groups seeking accountability and motivation, or anyone who thrives in a community environment while still wanting professional coaching.</p>
 					</div>
 
 					<div className={styles.training__pricing}>
@@ -56,9 +45,11 @@ const GroupTraining = () => {
 							<tbody>
 								{pricingData.map((row, index) => (
 									<tr key={index}>
-										<td>{row.group}</td>
-										<td>{row.price}</td>
-										<td>{row.monthly}</td>
+										<td data-label="Sessions Per Week">
+											<span>{row.group}</span>
+										</td>
+										<td data-label="Price Per Person/Session">{row.price}</td>
+										<td data-label="Example Monthly Cost*">{row.monthly}</td>
 									</tr>
 								))}
 							</tbody>

@@ -1,8 +1,12 @@
 @use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
 
 .faq {
-	padding: 8rem $inline-pg-space;
-	background: $white;
+	padding: 8rem 15.5rem;
+
+	@include media(max, tablet) {
+		padding: 5.6rem 1.6rem 0rem;
+	}
 
 	&__container {
 		max-width: $max-content-width;
@@ -11,26 +15,29 @@
 
 	&__title {
 		font-family: $ff-schabo;
-		font-size: $fs-48;
-		font-weight: $fw-bold;
-		line-height: 1.1;
-		color: $black;
-		margin-bottom: 4rem;
-		text-transform: uppercase;
+		font-size: $fs-64;
+		max-width: 44rem;
+
+		@include media(max, tablet) {
+			font-size: $fs-56;
+			margin-bottom: 2.4rem;
+		}
 	}
 
 	&__list {
+		margin-top: 2.4rem;
 		display: flex;
 		flex-direction: column;
+		gap: 2.4rem;
+
+		@include media(max, tablet) {
+			gap: 1.6rem;
+		}
 	}
 
 	&__item {
-		border-bottom: 1px solid rgba($black, 0.1);
+		border-bottom: 0.1rem solid #71717a;
 		transition: all 0.3s ease;
-
-		&:first-child {
-			border-top: 1px solid rgba($black, 0.1);
-		}
 	}
 
 	&__question {
@@ -38,19 +45,19 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 2.4rem 0;
-		background: none;
-		border: none;
 		cursor: pointer;
 		text-align: left;
-		font-family: $ff-google-sans;
-		font-size: $fs-18;
-		font-weight: $fw-medium;
-		color: $black;
+		font-size: $fs-20;
+		font-weight: $fw-bold;
+		padding-bottom: 2.4rem;
 		transition: color 0.3s ease;
 
-		&:hover {
-			color: $tomato-red;
+		@include media(max, tablet) {
+			font-size: $fs-16;
+		}
+
+		.faq__item--open & {
+			padding-bottom: 1.6rem;
 		}
 
 		span {
@@ -63,6 +70,8 @@
 		flex-shrink: 0;
 		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 		color: $black;
+		width: 2.4rem;
+		height: 2.4rem;
 
 		.faq__item--open & {
 			transform: rotate(180deg);
@@ -72,33 +81,39 @@
 	&__answer {
 		display: grid;
 		grid-template-rows: 0fr;
-		transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-			padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 		overflow: hidden;
 
 		.faq__item--open & {
 			grid-template-rows: 1fr;
-			padding-bottom: 2.4rem;
 		}
 
 		&__content {
 			min-height: 0;
 			opacity: 0;
 			transform: translateY(-1rem);
-			transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
-				transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+			will-change: transform;
+			transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+
+			@include media(max, tablet) {
+				padding-right: 4.3rem;
+			}
 
 			.faq__item--open & {
 				opacity: 1;
 				transform: translateY(0);
+				padding-block: 0 2.4rem;
+
+				@include media(max, tablet) {
+					padding-bottom: 1.6rem;
+				}
 			}
 
 			p {
-				font-family: $ff-google-sans;
-				font-size: $fs-16;
+				font-size: $fs-14;
 				font-weight: $fw-regular;
-				line-height: 1.6;
-				color: rgba($black, 0.8);
+				max-width: 53rem;
+				color: $charcoal-black;
 				margin: 0;
 			}
 		}

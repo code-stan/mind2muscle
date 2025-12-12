@@ -1,4 +1,6 @@
 @use "training-base" as *;
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
 
 .training {
 	@extend %training-base;
@@ -26,6 +28,68 @@
 
 	&__pricing {
 		@extend %training-pricing;
+
+		@include media(max, tablet) {
+			table {
+				border: none;
+				border-bottom: 0.1rem solid $charcoal-black;
+
+				thead {
+					display: none;
+				}
+
+				tbody {
+					tr {
+						display: block;
+						margin-bottom: 2.4rem;
+						border: 0.1rem solid $charcoal-black;
+						padding: 0;
+
+						&:last-child {
+							margin-bottom: 0;
+
+							td {
+								border-bottom: 0.1rem solid $charcoal-black;
+								&:last-child {
+									border-bottom: 0;
+								}
+							}
+						}
+
+						td {
+							display: block;
+							border: none;
+							border-bottom: 0.1rem solid $charcoal-black;
+							text-align: left;
+							padding: 1.6rem;
+
+							&:has(span) {
+								padding: 0;
+							}
+							span {
+								padding: 1.6rem;
+								display: inline-block;
+							}
+
+							&:first-child {
+								&::before {
+									content: attr(data-label);
+									display: block;
+									font-weight: $fw-semi-bold;
+									border-bottom: 0.1rem solid $charcoal-black;
+									padding: 1.6rem;
+									font-size: $fs-16;
+								}
+							}
+
+							&:last-child {
+								border-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&__cta {

@@ -45,6 +45,21 @@ const OnlineTraining = () => {
 		},
 	];
 
+	const mobilePackages = [
+		{
+			title: "Pre-Made Program - $75/month",
+			features: pricingFeatures.map((f) => f.preMade).filter((f) => f !== ""),
+		},
+		{
+			title: "Tailored Program - $100/month",
+			features: pricingFeatures.map((f) => f.tailored).filter((f) => f !== ""),
+		},
+		{
+			title: "Tailored Programming + Coaching - $125/month",
+			features: pricingFeatures.map((f) => f.coaching).filter((f) => f !== ""),
+		},
+	];
+
 	return (
 		<section className={styles.training}>
 			<div className={styles.training__container}>
@@ -74,7 +89,7 @@ const OnlineTraining = () => {
 
 					<div className={styles.training__pricing}>
 						<h3>PRICING</h3>
-						<table>
+						<table className={styles.training__pricing__table}>
 							<thead>
 								<tr>
 									<th>Pre-Made Program - $75/month</th>
@@ -92,6 +107,19 @@ const OnlineTraining = () => {
 								))}
 							</tbody>
 						</table>
+
+						<div className={styles.training__pricing__mobile}>
+							{mobilePackages.map((pkg, index) => (
+								<div key={index} className={styles.training__pricing__card}>
+									<div className={styles.training__pricing__card__title}>{pkg.title}</div>
+									{pkg.features.map((feature, fIndex) => (
+										<div key={fIndex} className={styles.training__pricing__card__feature}>
+											{feature}
+										</div>
+									))}
+								</div>
+							))}
+						</div>
 					</div>
 
 					<button className={styles.training__cta}>START ONLINE TRAINING</button>
