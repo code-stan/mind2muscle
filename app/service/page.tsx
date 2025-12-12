@@ -3,6 +3,7 @@ import InPersonTraining from "@/components/training/InPersonTraining";
 import MobileTraining from "@/components/training/MobileTraining";
 import GroupTraining from "@/components/training/GroupTraining";
 import OnlineTraining from "@/components/training/OnlineTraining";
+import FAQ from "@/components/faq/FAQ";
 import styles from "./style.module.scss";
 
 const page = () => {
@@ -15,6 +16,7 @@ const page = () => {
 				<GroupTraining />
 				<OnlineTraining />
 			</div>
+			<FAQ />
 		</main>
 	);
 };

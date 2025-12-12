@@ -5,8 +5,6 @@
 	@include flex(start, start, 7.8rem);
 	margin-top: 8rem;
 
-	&__image-container {
-	}
 	img {
 		width: 71rem;
 		height: 72.8rem;
@@ -29,6 +27,27 @@
 			font-family: $ff-stack-sans;
 			line-height: 1.5;
 			text-transform: unset;
+		}
+	}
+
+	@include media(max, tablet) {
+		margin-top: 5.6rem;
+		flex-direction: column-reverse;
+
+		&__content {
+			margin-top: 0;
+			margin-inline: 1.6rem;
+
+			h2 {
+				font-size: $fs-56;
+			}
+		}
+		&__list {
+			margin-top: 0.8rem;
+		}
+
+		img {
+			height: 58.9rem;
 		}
 	}
 }

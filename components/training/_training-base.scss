@@ -3,15 +3,22 @@
 
 // Base styles for all training sections
 %training-base {
-	color: $black;
 	margin-inline: 15.5rem;
 	color: $charcoal-black;
+
+	@include media(max, tablet) {
+		margin-inline: 1.6rem;
+	}
 }
 
 %training-container {
 	padding: 7.2rem;
 	max-width: 113rem;
 	margin: 0 auto;
+
+	@include media(max, tablet) {
+		padding: 1.6rem;
+	}
 }
 
 %training-header {
@@ -28,6 +35,19 @@
 	p {
 		max-width: 34.6rem;
 	}
+
+	@include media(max, tablet) {
+		flex-direction: column;
+		gap: 1.6rem;
+
+		h2 {
+			max-width: 100%;
+		}
+
+		p {
+			max-width: 100%;
+		}
+	}
 }
 
 %training-content {
@@ -40,7 +60,7 @@
 %training-features {
 	h3 {
 		font-size: $fs-32;
-		margin-bottom: 2rem;
+		margin-bottom: 1.6rem;
 	}
 
 	ul {
@@ -52,7 +72,7 @@
 		li {
 			display: flex;
 			align-items: center;
-			gap: 1.6rem;
+			// gap: 1.6rem;
 			position: relative;
 			padding-left: 3.6rem;
 
@@ -71,6 +91,7 @@
 	h4 {
 		font-family: $ff-stack-sans;
 		font-size: $fs-14;
+		font-weight: $fw-bold;
 		line-height: 1.5;
 		text-transform: unset;
 	}
@@ -154,5 +175,13 @@
 		content: "↗";
 		font-size: $fs-40;
 		line-height: 1;
+	}
+
+	@include media(max, tablet) {
+		padding: 1.6rem;
+		justify-content: unset;
+		text-align: left;
+		flex-direction: column;
+		align-items: start;
 	}
 }

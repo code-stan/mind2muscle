@@ -13,11 +13,8 @@
 	}
 
 	&__header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex(center, space-between, 2rem);
 		margin-bottom: 4.8rem;
-		gap: 2rem;
 	}
 
 	&__title {
@@ -70,20 +67,50 @@
 		grid-template-columns: repeat(3, 1fr);
 		gap: 2.4rem;
 
-		&--animating {
-			animation: fadeTransition 0.4s ease-in-out;
+		&--slideNext {
+			animation: slideOutToLeft 0.5s ease-in-out;
+		}
+
+		&--slidePrev {
+			animation: slideOutToRight 0.5s ease-in-out;
 		}
 	}
 
-	@keyframes fadeTransition {
+	@keyframes slideOutToLeft {
 		0% {
 			opacity: 1;
+			transform: translateX(0);
 		}
 		50% {
 			opacity: 0;
+			transform: translateX(-100px);
+		}
+		51% {
+			opacity: 0;
+			transform: translateX(100px);
 		}
 		100% {
 			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes slideOutToRight {
+		0% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		50% {
+			opacity: 0;
+			transform: translateX(100px);
+		}
+		51% {
+			opacity: 0;
+			transform: translateX(-100px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
 		}
 	}
 

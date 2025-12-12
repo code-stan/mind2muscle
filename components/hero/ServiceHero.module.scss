@@ -15,4 +15,12 @@
 		margin-top: 0.4rem;
 		margin-inline: 0.95rem;
 	}
+
+	@include media(max, tablet) {
+		margin: 12.4rem 1.6rem 3.9rem;
+
+		h1 {
+			font-size: $fs-56;
+		}
+	}
 }

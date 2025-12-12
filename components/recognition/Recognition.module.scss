@@ -10,30 +10,46 @@
 		font-size: $fs-64;
 		max-width: 28rem;
 	}
-}
 
-.recognition__list {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 3.7rem;
-}
-
-.recognition__list_item {
-	img {
-		width: 7.7rem;
-		height: 7.7rem;
+	&__list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3.7rem;
 	}
 
-	h3 {
-		font-size: $fs-64;
-		line-height: 1.2;
-		height: 7.7rem;
+	&__list_item {
+		img {
+			width: 7.7rem;
+			height: 7.7rem;
+		}
+
+		h3 {
+			font-size: $fs-64;
+			line-height: 1.2;
+			height: 7.7rem;
+		}
+
+		p {
+			font-weight: $fw-bold;
+			font-size: $fs-20;
+			line-height: 1.5;
+			margin-top: 0.8rem;
+		}
 	}
 
-	p {
-		font-weight: $fw-bold;
-		font-size: $fs-20;
-		line-height: 1.5;
-		margin-top: 0.8rem;
+	@include media(max, tablet) {
+		margin-top: 5.6rem;
+		margin-inline: 1.6rem;
+		flex-direction: column;
+		align-items: unset;
+		justify-content: unset;
+		gap: 3.2rem;
+
+		h2 {
+			font-size: $fs-56;
+		}
+		&__list {
+			gap: 2.4rem;
+		}
 	}
 }

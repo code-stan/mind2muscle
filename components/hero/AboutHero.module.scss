@@ -31,4 +31,30 @@
 			height: 64rem;
 		}
 	}
+
+	@include media(max, tablet) {
+		margin-top: 6rem;
+		&__top-content {
+			margin-inline: 1.6rem;
+
+			h2 {
+				font-size: $fs-24;
+			}
+		}
+		&__bottom-content {
+			margin-top: 2.4rem;
+			flex-direction: column;
+			gap: 5.6rem;
+
+			p {
+				margin-inline: 1.6rem;
+			}
+			img {
+				width: 100%;
+				aspect-ratio: 374/459;
+				object-fit: cover;
+				height: auto;
+			}
+		}
+	}
 }

@@ -13,7 +13,7 @@ const ContactHero = () => {
 				<div className={styles["hero__content-bottom"]}>
 					<div className={styles["location"]}>
 						<h3>Training Location</h3>
-						<p>Training Location:</p>
+						<p>327 North Main Street, Jennings, LA 70546</p>
 					</div>
 					<div className={styles["socials"]}>
 						<h3>Connect with me</h3>

@@ -86,6 +86,7 @@ const quote = (
 
 const Slider = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const [direction, setDirection] = useState<"next" | "prev" | null>(null);
 	const [isAnimating, setIsAnimating] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
@@ -104,20 +105,24 @@ const Slider = () => {
 
 	const nextSlide = () => {
 		if (isAnimating) return;
+		setDirection("next");
 		setIsAnimating(true);
 		setCurrentIndex((prevIndex) => (prevIndex + itemsPerPage >= testimonials.length ? 0 : prevIndex + itemsPerPage));
 		setTimeout(() => {
+			setDirection(null);
 			setIsAnimating(false);
-		}, 400);
+		}, 500);
 	};
 
 	const prevSlide = () => {
 		if (isAnimating) return;
+		setDirection("prev");
 		setIsAnimating(true);
 		setCurrentIndex((prevIndex) => (prevIndex - itemsPerPage < 0 ? Math.max(0, testimonials.length - itemsPerPage) : prevIndex - itemsPerPage));
 		setTimeout(() => {
+			setDirection(null);
 			setIsAnimating(false);
-		}, 400);
+		}, 500);
 	};
 
 	const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + itemsPerPage);
@@ -144,7 +149,7 @@ const Slider = () => {
 					</div>
 				</div>
 
-				<div className={`${styles.testimonials__grid} ${isAnimating ? styles["testimonials__grid--animating"] : ""}`}>
+				<div className={`${styles.testimonials__grid} ${direction === "next" ? styles["testimonials__grid--slideNext"] : ""} ${direction === "prev" ? styles["testimonials__grid--slidePrev"] : ""}`}>
 					{visibleTestimonials.map((testimonial) => (
 						<div key={testimonial.id} className={`${styles.testimonials__card} ${styles[`testimonials__card--${testimonial.bgColor}`]}`}>
 							<div className={styles.testimonials__cardHeader}>

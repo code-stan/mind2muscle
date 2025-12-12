@@ -21,4 +21,26 @@
 		width: 100%;
 		height: 66.3rem;
 	}
+
+	@include media(max, tablet) {
+		margin-top: 5.6rem;
+		margin-inline: 0;
+
+		&__content {
+			max-width: none;
+			margin-inline: 1.6rem;
+
+			p {
+				margin-top: 1rem;
+			}
+		}
+		img {
+			margin-top: 4rem;
+			min-height: 54.1rem;
+			height: unset;
+
+			// aspect-ratio: 917/541;
+			object-fit: cover;
+		}
+	}
 }

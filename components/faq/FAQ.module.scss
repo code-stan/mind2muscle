@@ -1,0 +1,106 @@
+@use "../../scss/utils/variables" as *;
+
+.faq {
+	padding: 8rem $inline-pg-space;
+	background: $white;
+
+	&__container {
+		max-width: $max-content-width;
+		margin: 0 auto;
+	}
+
+	&__title {
+		font-family: $ff-schabo;
+		font-size: $fs-48;
+		font-weight: $fw-bold;
+		line-height: 1.1;
+		color: $black;
+		margin-bottom: 4rem;
+		text-transform: uppercase;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item {
+		border-bottom: 1px solid rgba($black, 0.1);
+		transition: all 0.3s ease;
+
+		&:first-child {
+			border-top: 1px solid rgba($black, 0.1);
+		}
+	}
+
+	&__question {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2.4rem 0;
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		font-family: $ff-google-sans;
+		font-size: $fs-18;
+		font-weight: $fw-medium;
+		color: $black;
+		transition: color 0.3s ease;
+
+		&:hover {
+			color: $tomato-red;
+		}
+
+		span {
+			flex: 1;
+			padding-right: 2rem;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		color: $black;
+
+		.faq__item--open & {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__answer {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+			padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		overflow: hidden;
+
+		.faq__item--open & {
+			grid-template-rows: 1fr;
+			padding-bottom: 2.4rem;
+		}
+
+		&__content {
+			min-height: 0;
+			opacity: 0;
+			transform: translateY(-1rem);
+			transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+				transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+
+			.faq__item--open & {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			p {
+				font-family: $ff-google-sans;
+				font-size: $fs-16;
+				font-weight: $fw-regular;
+				line-height: 1.6;
+				color: rgba($black, 0.8);
+				margin: 0;
+			}
+		}
+	}
+}
