@@ -3,6 +3,7 @@
 import React from "react";
 import styles from "./ContactHero.module.scss";
 import { trackConsultationClick } from "@/utils/analytics";
+import ScrollyImage from "../common/ScrollyImage";
 
 const ContactHero = () => {
 	const handleConsultationClick = () => {
@@ -33,9 +34,9 @@ const ContactHero = () => {
 					</div>
 				</div>
 			</div>
-			<div className={styles["hero__image-container"]}>
+			<ScrollyImage className={styles["hero__image-container"]}>
 				<img src="/contact-hero-img.webp" alt="Contact Hero Image" width={670} height={745} />
-			</div>
+			</ScrollyImage>
 		</section>
 	);
 };

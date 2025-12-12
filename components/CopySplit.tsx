@@ -110,7 +110,7 @@ const CopySplit = ({ children, animateOnScroll = true, delay = 0, preserveLayout
 		}
 
 		gsap.set(container, { opacity: 1 });
-			gsap.set(allLines, { y: "115%",  });
+			gsap.set(allLines, { y: "115%", willChange: "transform" });
 
 		const anim = { y: "0%", rotate: 0, duration: 1, skewX: 0, skewY: 0, stagger: 0.1, ease: "power2.out", delay };
 
@@ -185,7 +185,7 @@ const CopySplit = ({ children, animateOnScroll = true, delay = 0, preserveLayout
 		};
 	}, [animateOnScroll, delay, preserveLayout]);
 	return (
-		<div ref={containerRef} data-copy-wrapper="true">
+		<div ref={containerRef} data-copy-wrapper="true" style={{willChange: "transform"}}>
 			{children}
 		</div>
 	);

@@ -3,6 +3,7 @@ import GetStarted from "@/components/get-started/GetStarted";
 import Nav from "@/components/nav/nav";
 import LenisContext from "@/context/LenisContext";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import "@/scss/style.scss";
 import { Metadata } from "next";
 import { OrganizationSchema, WebsiteSchema } from "@/components/schema/StructuredData";
@@ -105,6 +106,7 @@ export default function RootLayout({
 			</head>
 			<body suppressHydrationWarning>
 				<GoogleAnalytics />
+				<MicrosoftClarity />
 				<LenisContext>
 					<SmoothScroll>
 						<Nav />

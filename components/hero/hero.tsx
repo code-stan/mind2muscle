@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./style.module.scss";
 import { contact, service } from "@/utils/routes";
 import { trackConsultationClick, trackCTAClick } from "@/utils/analytics";
+import CopySplit from "../CopySplit";
+import ScrollyImage from "../common/ScrollyImage";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const quoteAuthor = "/quote-author.svg";
 const quote = (
@@ -14,6 +21,9 @@ const quote = (
 );
 
 const Hero = () => {
+	const quoteRef = useRef<HTMLDivElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
+
 	const handleConsultationClick = () => {
 		trackConsultationClick("Hero Section");
 	};
@@ -22,18 +32,54 @@ const Hero = () => {
 		trackCTAClick("View Programs", "Hero");
 	};
 
+	useGSAP(
+		() => {
+			if (!quoteRef.current || !containerRef.current) return;
+
+			const mm = gsap.matchMedia();
+
+			// Only apply effect on screens wider than 800px (tablet and up)
+			mm.add("(min-width: 801px)", () => {
+				// Set initial state to prevent flash
+				gsap.set(quoteRef.current, { y: 0 });
+
+				gsap.to(quoteRef.current, {
+					y: 150,
+					ease: "none",
+					scrollTrigger: {
+						trigger: containerRef.current,
+						start: "top bottom",
+						end: "bottom top",
+						scrub: true,
+					},
+				});
+			});
+
+			return () => mm.revert();
+		},
+		{ scope: containerRef }
+	);
+
 	return (
 		<section className={styles.hero}>
 			<div className={styles["hero__content"]}>
-				<h1>Where Your Mind Meets Your Muscle</h1>
-				<p>Transform your fitness journey with a personal trainer who doesn't just count reps, but teaches you the why behind every movement. Science-backed training. Real results. Your goals, our expertise.</p>
+				<CopySplit>
+					<h1>Where Your Mind Meets Your Muscle</h1>
+				</CopySplit>
+				<CopySplit delay={0.3}>
+					<p>Transform your fitness journey with a personal trainer who doesn't just count reps, but teaches you the why behind every movement. Science-backed training. Real results. Your goals, our expertise.</p>
+				</CopySplit>
 				<div className={styles["hero__button-container"]}>
-					<Link href={contact} onClick={handleConsultationClick}>Start Your Transformation</Link>
-					<Link href={service} onClick={handleViewProgramsClick}>View Programs</Link>
+					<Link href={contact} onClick={handleConsultationClick}>
+						Start Your Transformation
+					</Link>
+					<Link href={service} onClick={handleViewProgramsClick}>
+						View Programs
+					</Link>
 				</div>
 			</div>
-			<div className={styles["hero__quote-image"]}>
-				<div className={styles["hero__quote"]}>
+			<div className={styles["hero__quote-image"]} ref={containerRef}>
+				<div className={styles["hero__quote"]} ref={quoteRef}>
 					<div className={styles["quote"]}>{quote}</div>
 					<p>It’s been fun training with Kashami. I come from a background where I had no experience with exercise. Kashami gave me a realistic and doable plan and I loved having the chats with him while getting a good workout.  He pushed me to my limits and always got the best from me in every session.  I would definitely recommend Kashami as your personal trainer.</p>
 					<div className={styles["author"]}>
@@ -41,7 +87,9 @@ const Hero = () => {
 						<p>Cheryl,  68</p>
 					</div>
 				</div>
-				<img src="/hero.webp" alt="Personal trainer working with client in gym" className={styles["hero__image"]} width={1360} height={679} />
+				<ScrollyImage>
+					<img src="/hero.webp" alt="Personal trainer working with client in gym" className={styles["hero__image"]} width={1360} height={679} />
+				</ScrollyImage>
 			</div>
 		</section>
 	);

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style.module.scss";
+import ScrollyImage from "../common/ScrollyImage";
 
 const Philosophy = () => {
 	return (
@@ -26,7 +27,9 @@ const Philosophy = () => {
 					My job isn't just to train you for the next 12 weeks—it's to equip you with knowledge that lasts a lifetime.
 				</p>
 			</div>
-			<img src="/philosophy-img.webp" alt="A training sesh" width={1124} height={663} />
+			<ScrollyImage>
+				<img src="/philosophy-img.webp" alt="A training sesh" width={1124} height={663} />
+			</ScrollyImage>
 		</section>
 	);
 };

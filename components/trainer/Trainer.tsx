@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { about } from "@/utils/routes";
+import ScrollyImage from "../common/ScrollyImage";
 
 const Trainer = () => {
 	return (
@@ -24,7 +25,9 @@ const Trainer = () => {
 				</p>
 			</div>
 			<div className={styles["trainer__image-container"]}>
-				<img src="/kashami.webp" alt="A photo of Kashami" width={598} height={725} />
+				<ScrollyImage>
+					<img src="/kashami.webp" alt="A photo of Kashami" width={598} height={725} />
+				</ScrollyImage>
 				<div className={styles["link-container"]}>
 					<a href={about}>
 						<span>Learn More</span> <span>↗</span>

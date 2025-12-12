@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AboutHero.module.scss";
+import ScrollyImage from "../common/ScrollyImage";
 
 const AboutHero = () => {
 	return (
@@ -17,7 +18,9 @@ const AboutHero = () => {
 					<br />
 					That's when I stopped just working out and started truly training. And that's when everything clicked.
 				</p>
-				<img src="/about-hero.webp" alt="A picture of kashami sitting" width={522} height={640} />
+				<ScrollyImage>
+					<img src="/about-hero.webp" alt="A picture of kashami sitting" width={522} height={640} />
+				</ScrollyImage>
 			</div>
 		</section>
 	);

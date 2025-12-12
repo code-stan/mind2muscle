@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style.module.scss";
+import ScrollyImage from "../common/ScrollyImage";
 
 const Benefits = () => {
 	return (
@@ -23,8 +24,12 @@ const Benefits = () => {
 				</div>
 			</div>
 			<div className={styles["benefits__gallery"]}>
-				<img src="/benefit-g-1.webp" alt="A lady squating a bar" width={710} height={686} />
-				<img src="/benefit-g-2.webp" alt="A man deadlifting a bar" width={514} height={566} />
+				<ScrollyImage>
+					<img src="/benefit-g-1.webp" alt="A lady squating a bar" width={710} height={686} />
+				</ScrollyImage>
+				<ScrollyImage>
+					<img src="/benefit-g-2.webp" alt="A man deadlifting a bar" width={514} height={566} />
+				</ScrollyImage>
 			</div>
 		</section>
 	);

@@ -1,11 +1,12 @@
 import styles from "./style.module.scss";
+import ScrollyImage from "../common/ScrollyImage";
 
 const Approach = () => {
 	return (
 		<section className={styles["approach"]}>
-			<div className={styles["approach__image-container"]}>
+			<ScrollyImage className={styles["approach__image-container"]}>
 				<img src="/approach-img.webp" alt="Personal trainer demonstrating proper exercise form" width={710} height={728} />
-			</div>
+			</ScrollyImage>
 			<div className={styles["approach__content"]}>
 				<h2>My Approach</h2>
 

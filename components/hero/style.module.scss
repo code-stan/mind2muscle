@@ -54,6 +54,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.8rem;
+		will-change: transform;
+		z-index: 1;
 
 		.quote svg {
 			width: 1.635rem;
