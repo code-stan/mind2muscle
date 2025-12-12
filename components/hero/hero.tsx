@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./style.module.scss";
+import { contact, service } from "@/utils/routes";
 
 const quoteAuthor = "/quote-author.svg";
 const quote = (
@@ -16,8 +17,8 @@ const Hero = () => {
 				<h1>Where Your Mind Meets Your Muscle</h1>
 				<p>Transform your fitness journey with a personal trainer who doesn't just count reps, but teaches you the why behind every movement. Science-backed training. Real results. Your goals, our expertise.</p>
 				<div className={styles["hero__button-container"]}>
-					<Link href="">Start Your Transformation</Link>
-					<Link href="">View Programs</Link>
+					<Link href={contact}>Start Your Transformation</Link>
+					<Link href={service}>View Programs</Link>
 				</div>
 			</div>
 			<div className={styles["hero__quote-image"]}>
