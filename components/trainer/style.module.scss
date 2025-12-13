@@ -34,7 +34,7 @@
 			bottom: 0;
 			width: 100%;
 		}
-		a {
+		.liquid-button {
 			border: 0.2rem solid $white;
 			@include flex(center, space-between, 3rem);
 			font-family: $ff-schabo;
@@ -43,6 +43,73 @@
 			color: $white;
 			padding: 2.1rem 1.6rem 1.2rem;
 			text-transform: uppercase;
+			position: relative;
+			overflow: hidden;
+			transition: color 0.6s ease;
+			cursor: pointer;
+
+			.liquid-fill {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: $white;
+				transition: top 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+				z-index: 0;
+
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					width: 200%;
+					height: 200%;
+					top: -150%;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+
+				&::before {
+					border-radius: 45%;
+					background: rgba(255, 255, 255, 0.7);
+					animation: wave 5s linear infinite;
+				}
+
+				&::after {
+					border-radius: 40%;
+					background: rgba(255, 255, 255, 0.5);
+					animation: wave 7s linear infinite reverse;
+				}
+
+				&[data-hovered="true"] {
+					top: 0;
+				}
+			}
+
+			.button-text {
+				position: relative;
+				z-index: 1;
+				transition: color 0.6s ease;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					color: $black;
+
+					.button-text {
+						color: $black;
+					}
+				}
+			}
+		}
+
+		@keyframes wave {
+			0% {
+				transform: translateX(-50%) rotate(0deg);
+			}
+			100% {
+				transform: translateX(-50%) rotate(360deg);
+			}
 		}
 	}
 
@@ -67,7 +134,7 @@
 				aspect-ratio: 343 / 416;
 				object-fit: cover;
 			}
-			a {
+			.liquid-button {
 				padding-block: 1.8rem 0.9rem;
 			}
 		}

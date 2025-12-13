@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./FAQ.module.scss";
+import CopySplit from "../CopySplit";
 
 interface FAQItem {
 	question: string;
@@ -57,7 +58,9 @@ const FAQ = () => {
 	return (
 		<section className={styles.faq}>
 			<div className={styles.faq__container}>
-				<h2 className={styles.faq__title}>COMMON QUESTIONS ABOUT PRICING & PACKAGES</h2>
+				<CopySplit>
+					<h2 className={styles.faq__title}>COMMON QUESTIONS ABOUT PRICING & PACKAGES</h2>
+				</CopySplit>
 
 				<div className={styles.faq__list}>
 					{faqData.map((item, index) => (

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./GroupTraining.module.scss";
 import { trackPricingView, trackCTAClick } from "@/utils/analytics";
+import CopySplit from "../CopySplit";
 
 const GroupTraining = () => {
 	const pricingRef = useRef<HTMLDivElement>(null);
@@ -48,11 +49,16 @@ const GroupTraining = () => {
 		<section className={styles.training}>
 			<div className={styles.training__container}>
 				<div className={styles.training__header}>
-					<h2>GROUP TRAINING</h2>
-					<p>Train alongside friends, family, or workout partners in small group settings. Get expert coaching and the accountability of training with others—all at a more affordable price point than individual sessions.</p>
+					<CopySplit>
+						<h2>GROUP TRAINING</h2>
+					</CopySplit>
+					<CopySplit delay={0.2}>
+						<p>Train alongside friends, family, or workout partners in small group settings. Get expert coaching and the accountability of training with others—all at a more affordable price point than individual sessions.</p>
+					</CopySplit>
 				</div>
 
 				<div className={styles.training__content}>
+					{/* <CopySplit delay={0.3}> */}
 					<div className={styles.training__features}>
 						<h3>WHAT'S INCLUDED:</h3>
 						<ul>
@@ -61,11 +67,14 @@ const GroupTraining = () => {
 							))}
 						</ul>
 					</div>
+					{/* </CopySplit> */}
 
-					<div className={styles.training__ideal}>
-						<h4>Ideal For:</h4>
-						<p>Friends who want to train together, couples looking for shared fitness goals, small groups seeking accountability and motivation, or anyone who thrives in a community environment while still wanting professional coaching.</p>
-					</div>
+					<CopySplit delay={0.4}>
+						<div className={styles.training__ideal}>
+							<h4>Ideal For:</h4>
+							<p>Friends who want to train together, couples looking for shared fitness goals, small groups seeking accountability and motivation, or anyone who thrives in a community environment while still wanting professional coaching.</p>
+						</div>
+					</CopySplit>
 
 					<div ref={pricingRef} className={styles.training__pricing}>
 						<table>

@@ -1,7 +1,7 @@
 "use client";
 
 import { contact, service } from "@/utils/routes";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import React from "react";
 import styles from "./style.module.scss";
 import { trackConsultationClick } from "@/utils/analytics";

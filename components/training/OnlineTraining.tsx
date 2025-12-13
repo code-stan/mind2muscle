@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./OnlineTraining.module.scss";
 import { trackPricingView, trackCTAClick } from "@/utils/analytics";
+import CopySplit from "../CopySplit";
 
 const OnlineTraining = () => {
 	const pricingRef = useRef<HTMLDivElement>(null);
@@ -97,28 +98,36 @@ const OnlineTraining = () => {
 		<section className={styles.training}>
 			<div className={styles.training__container}>
 				<div className={styles.training__header}>
-					<h2>ONLINE PERSONAL TRAINING</h2>
-					<p>
-						Get professional programming and ongoing support from anywhere. Perfect for self-motivated individuals who want structured, expert-designed training without in-person sessions—or as a supplement to in-person training.
-					</p>
+					<CopySplit>
+						<h2>ONLINE PERSONAL TRAINING</h2>
+					</CopySplit>
+					<CopySplit delay={0.2}>
+						<p>
+							Get professional programming and ongoing support from anywhere. Perfect for self-motivated individuals who want structured, expert-designed training without in-person sessions—or as a supplement to in-person training.
+						</p>
+					</CopySplit>
 				</div>
 
 				<div className={styles.training__content}>
-					<div className={styles.training__features}>
-						<h3>WHAT'S INCLUDED (VARIES BY PACKAGE):</h3>
-						<ul>
-							{baseFeatures.map((feature, index) => (
-								<li key={index}>{feature}</li>
-							))}
-						</ul>
-					</div>
+					<CopySplit delay={0.3}>
+						<div className={styles.training__features}>
+							<h3>WHAT'S INCLUDED (VARIES BY PACKAGE):</h3>
+							<ul>
+								{baseFeatures.map((feature, index) => (
+									<li key={index}>{feature}</li>
+								))}
+							</ul>
+						</div>
+					</CopySplit>
 
-					<div className={styles.training__ideal}>
-						<h4>Ideal For:</h4>
-						<p>
-							Self-starters, frequent travelers, those outside the local area, clients wanting structured programming with expert oversight, or anyone looking for affordable professional guidance.
-						</p>
-					</div>
+					<CopySplit delay={0.4}>
+						<div className={styles.training__ideal}>
+							<h4>Ideal For:</h4>
+							<p>
+								Self-starters, frequent travelers, those outside the local area, clients wanting structured programming with expert oversight, or anyone looking for affordable professional guidance.
+							</p>
+						</div>
+					</CopySplit>
 
 					<div ref={pricingRef} className={styles.training__pricing}>
 						<h3>PRICING</h3>

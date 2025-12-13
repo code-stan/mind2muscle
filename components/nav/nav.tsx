@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import styles from "./style.module.scss";
 import { about, contact, service } from "@/utils/routes";
 

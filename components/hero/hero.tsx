@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import React, { useRef } from "react";
 import styles from "./style.module.scss";
 import { contact, service } from "@/utils/routes";

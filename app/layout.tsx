@@ -7,6 +7,7 @@ import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import "@/scss/style.scss";
 import { Metadata } from "next";
 import { OrganizationSchema, WebsiteSchema } from "@/components/schema/StructuredData";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.mind2muscle.site'),
@@ -63,8 +64,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
+		<ViewTransitions>
+			<html lang="en" suppressHydrationWarning>
+				<head>
 				<OrganizationSchema />
 				<WebsiteSchema />
 				{/* Preload local font */}
@@ -117,5 +119,6 @@ export default function RootLayout({
 				{/* <TransitionOverlay /> */}
 			</body>
 		</html>
+		</ViewTransitions>
 	);
 }
