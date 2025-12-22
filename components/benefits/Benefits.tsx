@@ -17,24 +17,30 @@ const Benefits = () => {
 				</CopySplit>
 			</div>
 			<div className={styles["benefits__content"]}>
-				<CopySplit delay={0.3}>
-					<div className={styles.benefit}>
+				<div className={styles.benefit}>
+					<CopySplit delay={0.3}>
 						<h3>Knowledge-Driven Training</h3>
+					</CopySplit>
+					<CopySplit delay={0.3}>
 						<p>Learn the science behind every exercise. Understand what muscles you're targeting, why form matters, and how your body adapts. Leave every session smarter and stronger.</p>
-					</div>
-				</CopySplit>
-				<CopySplit delay={0.4}>
-					<div className={styles.benefit}>
+					</CopySplit>
+				</div>
+				<div className={styles.benefit}>
+					<CopySplit delay={0.4}>
 						<h3>Holistic Approach</h3>
+					</CopySplit>
+					<CopySplit delay={0.4}>
 						<p>Your fitness journey isn't just about the gym. We take a comprehensive approach that considers your lifestyle, goals, experience level, and unique challenges to create a plan that actually works for you.</p>
-					</div>
-				</CopySplit>
-				<CopySplit delay={0.5}>
-					<div className={styles.benefit}>
+					</CopySplit>
+				</div>
+				<div className={styles.benefit}>
+					<CopySplit delay={0.5}>
 						<h3>Inclusive & Straightforward</h3>
+					</CopySplit>
+					<CopySplit delay={0.5}>
 						<p>Whether you're stepping into a gym for the first time or you're an experienced athlete looking to level up, we meet you where you are—no judgment, no intimidation, just results.</p>
-					</div>
-				</CopySplit>
+					</CopySplit>
+				</div>
 			</div>
 			<div className={styles["benefits__gallery"]}>
 				<ScrollyImage>
