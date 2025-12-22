@@ -2,6 +2,7 @@ import SmoothScroll from "@/components/common/smoothScroll";
 import GetStarted from "@/components/get-started/GetStarted";
 import Nav from "@/components/nav/nav";
 import LenisContext from "@/context/LenisContext";
+import LoaderContext from "@/context/LoaderContext";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import "@/scss/style.scss";
@@ -109,13 +110,15 @@ export default function RootLayout({
 			<body suppressHydrationWarning>
 				<GoogleAnalytics />
 				<MicrosoftClarity />
-				<LenisContext>
-					<SmoothScroll>
-						<Nav />
-						{children}
-						<GetStarted />
-					</SmoothScroll>
-				</LenisContext>
+				<LoaderContext>
+					<LenisContext>
+						<SmoothScroll>
+							<Nav />
+							{children}
+							<GetStarted />
+						</SmoothScroll>
+					</LenisContext>
+				</LoaderContext>
 				{/* <TransitionOverlay /> */}
 			</body>
 		</html>
