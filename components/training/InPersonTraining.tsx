@@ -3,7 +3,10 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./InPersonTraining.module.scss";
 import { trackPricingView, trackCTAClick } from "@/utils/analytics";
-import CopySplit from "../CopySplit";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const InPersonTraining = () => {
 	const pricingRef = useRef<HTMLDivElement>(null);
@@ -32,6 +35,23 @@ const InPersonTraining = () => {
 
 		if (pricingRef.current) {
 			observer.observe(pricingRef.current);
+
+			// Animate table on scroll
+			gsap.fromTo(
+				pricingRef.current,
+				{ opacity: 0, y: 50 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 1,
+					ease: "power2.out",
+					scrollTrigger: {
+						trigger: pricingRef.current,
+						start: "top 80%",
+						once: true,
+					},
+				}
+			);
 		}
 
 		return () => {
@@ -49,16 +69,11 @@ const InPersonTraining = () => {
 		<section className={styles.training}>
 			<div className={styles.training__container}>
 				<div className={styles.training__header}>
-					<CopySplit>
-						<h2>IN-PERSON PERSONAL TRAINING</h2>
-					</CopySplit>
-					<CopySplit delay={0.2}>
-						<p>Get 100% customized programming and hands-on coaching tailored specifically to your goals, body, and experience level. Train at our facility with access to professional equipment and expert guidance every step of the way.</p>
-					</CopySplit>
+					<h2>IN-PERSON PERSONAL TRAINING</h2>
+					<p>Get 100% customized programming and hands-on coaching tailored specifically to your goals, body, and experience level. Train at our facility with access to professional equipment and expert guidance every step of the way.</p>
 				</div>
 
 				<div className={styles.training__content}>
-					{/* <CopySplit delay={0.3}> */}
 					<div className={styles.training__features}>
 						<h3>WHAT'S INCLUDED:</h3>
 						<ul>
@@ -67,14 +82,11 @@ const InPersonTraining = () => {
 							))}
 						</ul>
 					</div>
-					{/* </CopySplit> */}
 
-					<CopySplit delay={0.4}>
-						<div className={styles.training__ideal}>
-							<h4>Ideal For:</h4>
-							<p>Beginners looking for confidence, experienced lifters wanting to break through plateaus, or anyone with specific goals like fat loss, muscle gain, athletic performance, or working around injuries.</p>
-						</div>
-					</CopySplit>
+					<div className={styles.training__ideal}>
+						<h4>Ideal For:</h4>
+						<p>Beginners looking for confidence, experienced lifters wanting to break through plateaus, or anyone with specific goals like fat loss, muscle gain, athletic performance, or working around injuries.</p>
+					</div>
 
 					<div ref={pricingRef} className={styles.training__pricing}>
 						<table>

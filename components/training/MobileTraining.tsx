@@ -3,7 +3,10 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./MobileTraining.module.scss";
 import { trackPricingView, trackCTAClick } from "@/utils/analytics";
-import CopySplit from "../CopySplit";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MobileTraining = () => {
 	const pricingRef = useRef<HTMLDivElement>(null);
@@ -32,6 +35,23 @@ const MobileTraining = () => {
 
 		if (pricingRef.current) {
 			observer.observe(pricingRef.current);
+
+			// Animate table on scroll
+			gsap.fromTo(
+				pricingRef.current,
+				{ opacity: 0, y: 50 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 1,
+					ease: "power2.out",
+					scrollTrigger: {
+						trigger: pricingRef.current,
+						start: "top 80%",
+						once: true,
+					},
+				}
+			);
 		}
 
 		return () => {
@@ -49,16 +69,11 @@ const MobileTraining = () => {
 		<section className={styles.training}>
 			<div className={styles.training__container}>
 				<div className={styles.training__header}>
-					<CopySplit>
-						<h2>MOBILE TRAINING</h2>
-					</CopySplit>
-					<CopySplit delay={0.2}>
-						<p>No gym? No problem. I'll bring the workout—and the equipment—directly to your home, office, backyard, or any location that works for you. All the benefits of personalized training without the commute or gym membership.</p>
-					</CopySplit>
+					<h2>MOBILE TRAINING</h2>
+					<p>No gym? No problem. I'll bring the workout—and the equipment—directly to your home, office, backyard, or any location that works for you. All the benefits of personalized training without the commute or gym membership.</p>
 				</div>
 
 				<div className={styles.training__content}>
-					{/* <CopySplit delay={0.3}> */}
 					<div className={styles.training__features}>
 						<h3>WHAT'S INCLUDED:</h3>
 						<ul>
@@ -67,14 +82,11 @@ const MobileTraining = () => {
 							))}
 						</ul>
 					</div>
-					{/* </CopySplit> */}
 
-					<CopySplit delay={0.4}>
-						<div className={styles.training__ideal}>
-							<h4>Ideal For:</h4>
-							<p>Busy professionals, stay-at-home parents, anyone with limited gym access, those who prefer privacy, or clients who want the ultimate convenience in their fitness routine.</p>
-						</div>
-					</CopySplit>
+					<div className={styles.training__ideal}>
+						<h4>Ideal For:</h4>
+						<p>Busy professionals, stay-at-home parents, anyone with limited gym access, those who prefer privacy, or clients who want the ultimate convenience in their fitness routine.</p>
+					</div>
 
 					<div ref={pricingRef} className={styles.training__pricing}>
 						<table>
